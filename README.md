@@ -1,5 +1,5 @@
 # Descomplicando o Kubernetes - LinuxTips
-Arquivos das práticas do livro "Descomplicando o Kubernetes" - LinuxTips.
+Arquivos das práticas do livro "Descomplicando o Kubernetes" de Jeferson Fernando - LinuxTips.
 
 ---
 
