@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: licaodecasa-service
+spec:
+  type: ExternalName
+  selector:
+    app: meu-nginx
+  externalName: example.com

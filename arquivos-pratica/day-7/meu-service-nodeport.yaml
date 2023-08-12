@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: meu-service-nodeport
+spec:
+  type: NodePort # Tipo do Service
+  selector:
+    app: meu-app
+  ports:
+    - protocol: TCP
+      port: 80 # Porta do Service, que será mapeada para a porta 8080 do Pod
+      targetPort: 80 # Porta dos Pods
+      #targetPort: 8080 # Porta dos Pods
+      nodePort: 30000   # Porta do Node, que será mapeada para a porta 80 do Service

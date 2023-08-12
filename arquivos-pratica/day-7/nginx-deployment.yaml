@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels: 
+    environment: k8s-playground
+    app: meu-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: meu-app
+  template:
+    metadata:
+      labels:
+        app: meu-app
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+#        ports:
+#        - containerPort: 80
