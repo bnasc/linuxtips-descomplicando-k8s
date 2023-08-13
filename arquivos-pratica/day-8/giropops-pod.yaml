@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: giropops-pod
+spec:
+  containers:
+  - name: giropops-container
+    image: nginx
+    env: # Inicio da definição das variáveis de ambiente
+    - name: USERNAME # Nome da variável de ambiente que será usada no Pod
+      valueFrom: # Inicio da definição de onde o valor da variável de ambiente será buscado
+        secretKeyRef: # Inicio da definição de que o valor da variável de ambiente será buscado em um Secret, através de uma chave
+          name: giropops-secret # Nome do Secret que contém o valor da variável de ambiente que será usada no Pod
+          key: username # Nome da chave do campo do Secret que contém o valor da variável de ambiente que será usada no Pod
+    - name: PASSWORD # Nome da variável de ambiente que será usada no Pod
+      valueFrom: # Inicio da definição de onde o valor da variável de ambiente será buscado
+        secretKeyRef: # Inicio da definição de que o valor da variável de ambiente será buscado em um Secret, através de uma chave
+          name: giropops-secret # Nome do Secret que contém o valor da variável de ambiente que será usada no Pod
+          key: password # Nome da chave do campo do Secret que contém o valor da variável de ambiente que será usada no Pod

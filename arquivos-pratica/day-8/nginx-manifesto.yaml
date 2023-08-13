@@ -1,0 +1,26 @@
+# O mesmo que criar via arquivo nginx.conf
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-config
+  # immutable: true # torna o ConfigMap imutável
+  # namespace: minha-namespace # deixa o ConfigMap na namespace `minha-namespace`
+data:
+  nginx.conf: |
+    events { }
+
+    http {
+      server {
+        listen 80;
+        listen 443 ssl;
+
+        ssl_certificate /etc/nginx/tls/certificado.crt;
+        ssl_certificate_key /etc/nginx/tls/chave-privada.key;
+
+        location / {
+          return 200 'Bem-vindo ao Nginx!\n';
+          add_header Content-Type text/plain;
+        }
+      }
+    }
